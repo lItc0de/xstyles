@@ -1,14 +1,19 @@
 {
-  "name": "styleguide",
+  "name": "@litc0de/xstyles",
+  "main": "./dist/xstyles.common.js",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name xstyles ./src/components/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e"
   },
+  "files": [
+    "dist/*",
+    "src/components/*"
+  ],
   "dependencies": {
     "register-service-worker": "^1.0.0",
     "vue": "^2.5.17",
