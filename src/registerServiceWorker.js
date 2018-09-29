@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import { register } from 'register-service-worker';
+import { register } from 'register-service-worker'; // eslint-disable-line import/no-extraneous-dependencies
 
 if (process.env.NODE_ENV === 'production') {
   register(`${process.env.BASE_URL}service-worker.js`, {
