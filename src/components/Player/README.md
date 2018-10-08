@@ -1,15 +1,22 @@
 # Player
 
-```js
-// vuejs
-<template>
-  <div>111</div>
-</template>
-```
+asdfsd
 
-```js
-// vuejs
+```
 <template>
-  <div>222</div>
+  <div>
+    222
+    <div>{{ bla }}</div>
+  </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      bla: 'lol hahahah',
+    };
+  },
+};
+</script>
 ```

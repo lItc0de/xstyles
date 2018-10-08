@@ -1,12 +1,30 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
+import VueRouter from 'vue-router';
 import Readme from '@/views/Readme';
+import readme from '@/components/__mocks__/README.md';
+
+jest.mock('@/components');
+
+const localVue = createLocalVue();
+
+localVue.use(VueRouter);
 
 describe('Readme', () => {
   let wrapper;
+  let router;
+
   beforeEach(() => {
+    router = new VueRouter({
+      routes: [
+        { path: '/:component', name: 'Default' },
+      ],
+    });
+
     wrapper = shallowMount(Readme, {
+      localVue,
+      router,
       methods: {
-        loadFile: jest.fn().mockReturnValue('# Bar'),
+        fetchFile: jest.fn().mockReturnValue(readme),
       },
     });
   });
@@ -17,42 +35,12 @@ describe('Readme', () => {
         expect(true).toBe(true);
       });
     });
-
-    describe('parseFile', () => {
-      it('returns an array of vue components from the readme', () => {
-        const markdown = `
-          # Foo
-          \`\`\`
-          // vuejs
-          <template><p>bar</p></template>
-          <script>export default {
-            data() {
-              return {
-                test: 'test',
-              };
-            },
-          }</script>
-          \`\`\`
-          \`bla\`
-        `;
-        wrapper.setMethods({
-          loadFile: jest.fn().mockReturnValueOnce(markdown),
-        });
-
-        wrapper.vm.parseFile();
-
-        expect(wrapper.vm.contentArr[0]).toEqual({ template: '<h1>Foo</h1>' });
-        expect(wrapper.vm.contentArr[1].template).toEqual('<p>bar</p>');
-        expect(wrapper.vm.contentArr[1].data()).toEqual({ test: 'test' });
-        expect(wrapper.vm.contentArr[2]).toEqual({ template: '<p><code>bla</code></p>' });
-      });
-    });
   });
 
-  describe('remder', () => {
+  describe('render', () => {
     it('should return a valid vue component', () => {
-      debugger;
-      expect(wrapper.find('h1').text()).toEqual('Foo');
+      expect(wrapper.find('#player').text()).toEqual('Player');
+      expect(wrapper.find('pre.hljs').exists()).toBe(true);
     });
   });
 });

@@ -1,10 +1,16 @@
 module.exports = {
-  chainWebpack: (config) => {
-    config.module
-      .rule('md')
-      .test(/\.md$/)
-      .use('html-loader')
-      .loader('html-loader')
-      .end();
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.md$/,
+          use: [
+            { loader: 'html-loader' },
+            { loader: 'highlight-loader' },
+            { loader: 'markdown-loader' },
+          ],
+        },
+      ],
+    },
   },
 };

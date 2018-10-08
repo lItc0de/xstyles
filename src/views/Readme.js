@@ -1,53 +1,56 @@
-import { getFilePartsArr, parse } from '@/utils/parseMarkdown';
+import VueWithCompiler from 'vue/dist/vue.esm';
 import { capitalize } from '@/utils/stringHelpers';
-import Vue from 'vue';
+import parseMarkdown from '@/utils/parseMarkdown';
+import XStyles from '@/components';
+
+VueWithCompiler.use(XStyles);
 
 export default {
   name: 'Readme',
 
   data() {
     return {
-      contentArr: [],
+      readme: null,
     };
   },
 
   watch: {
     $route: {
-      handler: 'parseFile',
+      handler: 'getReadme',
       immediate: true,
     },
   },
 
   methods: {
-    async loadFile() {
-      const component = capitalize(this.$route.params.component);
-      return (await import(`../components/${component}/README.md`)).default;
+    async fetchFile(component) {
+      let file;
+      try {
+        file = await import(`../components/${component}/README.md`);
+        return file.default;
+      } catch (error) {
+        console.log(error);
+
+        return null;
+      }
     },
 
-    parseFile() {
-      let markdown;
-      try {
-        markdown = this.loadFile();
-      } catch (error) {
-        markdown = '#No README';
+    async getReadme() {
+      const component = capitalize(this.$route.params.component);
+      const markdown = await this.fetchFile(component);
+      if (!markdown) {
+        this.readme = '<h1>Not Found</h1>';
+        return;
       }
-
-      const chunks = getFilePartsArr(markdown);
-
-      if (!chunks) return;
-
-      this.contentArr = chunks.reduce((arr, chunk) => {
-        arr.push(parse(chunk));
-        return arr;
-      }, []);
-    }
+      this.readme = markdown;
+    },
   },
 
   render(createElement) {
-    debugger;
-    return createElement('div', [
-      createElement(Vue.compile('<h1>Foo</h1>').render),
-      createElement('<h1>bla</h1>'),
-    ]);
+    const { readme } = this;
+    if (!readme) return createElement('div', 'Loading...');
+    const components = parseMarkdown(readme).map((element, i) =>
+      createElement(VueWithCompiler.component(`Component-${i}`, element)));
+
+    return createElement('div', components);
   },
 };

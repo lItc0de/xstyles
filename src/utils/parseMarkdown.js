@@ -1,35 +1,35 @@
-import { markdown } from 'markdown'; // eslint-disable-line
+const hasClass = (htmlElement, htmlClass) => (htmlElement.getAttribute('class') === htmlClass);
 
-export const REGEX = /(?:```[\s\S]*?```)|([\s\S]*?(?=```))|([\s\S]+)/g;
-export const TEMPLATE_REGEX = /<template>([\s\S]*)<\/template>/;
-export const SCRIPT_REGEX = /<script>[\s\S]*export default([\s\S]*)<\/script>/;
-
-export const getFilePartsArr = file => file.match(REGEX).map(part => part.trim());
-
-export const toJs = (string) => {
-  let options;
-  eval(`options = ${string}`); // eslint-disable-line no-eval
-  return options;
-};
-export const toHTML = string => markdown.toHTML(string);
-export const toVue = (template, script = {}) => ({ template, ...script });
-
-export const getTemplate = string => (string.match(TEMPLATE_REGEX) || ['', ''])[1].trim();
-export const getScript = string => toJs((string.match(SCRIPT_REGEX) || ['', '{}'])[1].trim());
-
-export const parseMd = (chunk) => {
-  if (typeof chunk !== 'string') return null;
-  if (chunk.includes('// vuejs')) return null;
-  return toVue(toHTML(chunk));
+const createElement = (string) => {
+  const el = document.createElement('div');
+  el.innerHTML = string;
+  return el;
 };
 
-export const parseCode = (chunk) => {
-  if (typeof chunk !== 'string') return null;
-  if (!chunk.includes('// vuejs')) return null;
-  return toVue(getTemplate(chunk), getScript(chunk));
+const convertToVue = (string) => {
+  const html = createElement(string);
+  const template = html.querySelector('template').innerHTML;
+  const script = html.querySelector('script').innerHTML;
+  let options = {}; // eslint-disable-line prefer-const
+  eval(script.replace('export default', 'options =')); // eslint-disable-line no-eval
+
+  return { ...options, template };
 };
 
-export const parse = (chunk) => {
-  if (chunk.includes('// vuejs')) return parseCode(chunk);
-  return parseMd(chunk);
+const getHtmlElements = (string) => {
+  const html = createElement(string);
+  return Object.keys(html.children).reduce((children, i) => {
+    children.push(html.children[i]);
+    return children;
+  }, []);
 };
+
+export { hasClass, createElement, convertToVue, getHtmlElements };
+
+export default string =>
+  getHtmlElements(string).reduce((vueElements, htmlElement) => {
+    const vueCode = hasClass(htmlElement, 'hljs');
+    if (vueCode) vueElements.push(convertToVue(htmlElement.innerText));
+    vueElements.push({ template: htmlElement.outerHTML });
+    return vueElements;
+  }, []);
