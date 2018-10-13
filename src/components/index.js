@@ -9,11 +9,15 @@ context.keys().forEach((file) => {
   components[name] = component;
 });
 
+const componentNames = Object.keys(components);
+
 const install = (Vue) => {
-  Object.keys(components).forEach(name => Vue.component(name, components[name]));
+  componentNames.forEach(name => Vue.component(name, components[name]));
 };
 
 export default {
   install,
   components,
 };
+
+export { componentNames };

@@ -14,6 +14,15 @@
     "dist/*",
     "src/components/*"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["yarn lint --fix", "git add"],
+    "*.vue": ["yarn lint --fix", "git add"]
+  },
   "dependencies": {},
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
@@ -29,6 +38,8 @@
     "highlight-loader": "^0.7.3",
     "highlight.js": "^9.12.0",
     "html-loader": "^0.5.5",
+    "husky": "^1.1.2",
+    "lint-staged": "^7.3.0",
     "markdown-loader": "^4.0.0",
     "register-service-worker": "^1.5.2",
     "stylus": "^0.54.5",

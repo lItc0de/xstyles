@@ -5,6 +5,7 @@ import XStyles from '@/components';
 import App from './App.vue';
 import router from './routes';
 import './registerServiceWorker';
+import './style.styl';
 
 Vue.config.productionTip = false;
 Vue.use(XStyles);
