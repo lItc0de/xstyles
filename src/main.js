@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import 'highlight.js/styles/atom-one-dark.css'; // eslint-disable-line import/no-extraneous-dependencies
+import '@mdi/font/css/materialdesignicons.min.css';
 
 import XStyles from '@/components';
 import App from './App.vue';

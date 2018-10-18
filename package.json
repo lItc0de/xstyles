@@ -20,8 +20,14 @@
     }
   },
   "lint-staged": {
-    "*.js": ["yarn lint --fix", "git add"],
-    "*.vue": ["yarn lint --fix", "git add"]
+    "*.js": [
+      "yarn lint --fix",
+      "git add"
+    ],
+    "*.vue": [
+      "yarn lint --fix",
+      "git add"
+    ]
   },
   "dependencies": {},
   "devDependencies": {
@@ -49,6 +55,7 @@
     "vue-template-compiler": "^2.5.17"
   },
   "peerDependencies": {
+    "@mdi/font": "^2.8.94",
     "vue": ">2"
   },
   "license": "MIT"

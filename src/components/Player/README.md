@@ -1,21 +1,28 @@
 # Player
 
-asdfsd
 
-```
+```js
 <template>
-  <div>
-    222
-    <div>{{ bla }}</div>
-  </div>
+  <player
+    :handle-shuffle-click="handleShuffleClick"
+    :handle-previous-click="handlePreviousClick"
+    :handle-play-click="handlePlayClick"
+    :handle-next-click="handleNextClick"
+    :handle-repeat-click="handleRepeatClick"
+  >
+  </player>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      bla: 'lol hahahah',
-    };
+  name: 'PlayerExample',
+
+  methods: {
+    handleShuffleClick() {},
+    handlePreviousClick() {},
+    handlePlayClick() {},
+    handleNextClick() {},
+    handleRepeatClick() {},
   },
 };
 </script>
