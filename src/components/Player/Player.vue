@@ -1,42 +1,45 @@
 <template>
   <div class="player">
     <div class="row">
-      <btn icon @click="handleShuffleClick">shuffle</btn>
-      <btn icon @click="handlePreviousClick">skip-previous</btn>
-      <btn icon size="40" @click="handlePlayClick">play-circle-outline</btn>
-      <btn icon @click="handleNextClick">skip-next</btn>
-      <btn icon @click="handleRepeatClick">repeat</btn>
+      <x-btn icon @click="$emit('shuffle-click')">{{ icons.shuffle }}</x-btn>
+      <x-btn icon @click="$emit('previous-click')">skip-previous</x-btn>
+      <x-btn icon size="40" @click="$emit('play-click')">{{ icons.playState }}</x-btn>
+      <x-btn icon @click="$emit('next-click')">skip-next</x-btn>
+      <x-btn icon @click="$emit('repeat-click')">{{ icons.repeatMode }}</x-btn>
     </div>
     <div class="row">
-      <progress-bar value="0"></progress-bar>
+      <x-progress-bar
+        :position="state.position"
+        :duration="state.duration"
+        :paused="state.paused"
+      />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Player',
+  name: 'XPlayer',
 
   props: {
-    handleShuffleClick: {
-      type: Function,
+    state: {
+      type: Object,
       required: true,
     },
-    handlePreviousClick: {
-      type: Function,
-      required: true,
-    },
-    handlePlayClick: {
-      type: Function,
-      required: true,
-    },
-    handleNextClick: {
-      type: Function,
-      required: true,
-    },
-    handleRepeatClick: {
-      type: Function,
-      required: true,
+  },
+
+  computed: {
+    icons() {
+      const { state } = this;
+      const playState = state.paused ? 'play-circle-outline' : 'pause-circle-outline';
+      const repeatMode = ['repeat-off', 'repeat', 'repeat-once'][state.repeatMode];
+      const shuffle = state.shuffle ? 'shuffle' : 'shuffle-disabled';
+      return {
+        playState,
+        repeatMode,
+        shuffle,
+        position: state.position,
+      };
     },
   },
 };

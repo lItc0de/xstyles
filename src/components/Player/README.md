@@ -3,14 +3,15 @@
 
 ```js
 <template>
-  <player
-    :handle-shuffle-click="handleShuffleClick"
-    :handle-previous-click="handlePreviousClick"
-    :handle-play-click="handlePlayClick"
-    :handle-next-click="handleNextClick"
-    :handle-repeat-click="handleRepeatClick"
+  <x-player
+    :state="state"
+    @shuffle-click="handleShuffleClick"
+    @previous-click="handlePreviousClick"
+    @play-click="handlePlayClick"
+    @next-click="handleNextClick"
+    @repeat-click="handleRepeatClick"
   >
-  </player>
+  </x-player>
 </template>
 
 <script>
@@ -18,11 +19,23 @@ export default {
   name: 'PlayerExample',
 
   methods: {
-    handleShuffleClick() {},
-    handlePreviousClick() {},
-    handlePlayClick() {},
-    handleNextClick() {},
-    handleRepeatClick() {},
+    handleShuffleClick() { alert('ShuffleClick') },
+    handlePreviousClick() { alert('PreviousClick') },
+    handlePlayClick() { alert('PlayClick') },
+    handleNextClick() { alert('NextClick') },
+    handleRepeatClick() { alert('RepeatClick') },
+  },
+
+  computed: {
+    state() {
+      return {
+        paused: false,
+        repeatMode: 2,
+        shuffle: true,
+        position: 92345,
+        duration: 945517,
+      };
+    },
   },
 };
 </script>

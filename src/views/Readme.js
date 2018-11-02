@@ -35,7 +35,7 @@ export default {
     },
 
     async getReadme() {
-      const component = capitalize(this.$route.params.component);
+      const component = capitalize(this.$route.params.component.replace('X', ''));
       const markdown = await this.fetchFile(component);
       if (!markdown) {
         this.readme = '<h1>Not Found</h1>';

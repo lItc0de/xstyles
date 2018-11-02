@@ -1,10 +1,13 @@
 <template>
-  <i :style="style" :class="`icon mdi mdi-${$slots.default[0].text}`"></i>
+  <i
+    :style="style"
+    :class="`icon mdi mdi-${$slots.default[0].text}`"
+  />
 </template>
 
 <script>
 export default {
-  name: 'Icon',
+  name: 'XIcon',
   props: {
     color: {
       type: String,

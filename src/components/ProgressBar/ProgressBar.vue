@@ -1,20 +1,23 @@
 <template>
-  <div
-    class="progress-bar"
-    :style="style"
-  >
-    <span
+  <div class="progress-bar">
+    <div>{{ internalPosition | msToMinSec }}</div>
+    <div
       class="bar"
       :style="barStyle"
     >
-    </span>
-    <span class="slider" :style="sliderStyle"></span>
+      <div
+        class="progress"
+        :style="progressStyle"
+      ></div>
+      <div class="slider" :style="sliderStyle"></div>
+    </div>
+    <div>{{ duration | msToMinSec }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ProgressBar',
+  name: 'XProgressBar',
 
   props: {
     backgroundColor: {
@@ -41,14 +44,28 @@ export default {
       type: Number,
       default: 100,
     },
-    value: {
+    position: {
       type: [Number, String],
+      required: true,
+    },
+    duration: {
+      type: [Number, String],
+      required: true,
+    },
+    paused: {
+      type: Boolean,
       required: true,
     },
   },
 
+  data() {
+    return {
+      internalPosition: this.position,
+    };
+  },
+
   computed: {
-    style() {
+    barStyle() {
       return {
         backgroundColor: this.backgroundColor,
         borderRadius: this.radius,
@@ -56,12 +73,12 @@ export default {
       };
     },
 
-    barStyle() {
+    progressStyle() {
       return {
         backgroundColor: this.color,
         borderRadius: this.radius,
         height: this.height,
-        width: `${this.value}%`,
+        width: `${this.percentage}%`,
       };
     },
 
@@ -71,9 +88,31 @@ export default {
         borderRadius: `calc(${this.radius} + 2px)`,
         height: `calc(${this.height} + 4px)`,
         width: `calc(${this.height} + 4px)`,
-        top: '-2px',
-        left: `calc(${this.value}% - ${this.height} + 2px)`,
+        left: `calc(${this.percentage}% - ${this.height} + 2px)`,
       };
+    },
+
+    percentage() {
+      return ((this.internalPosition / this.duration) * 100);
+    },
+  },
+
+  methods: {
+    timer() {
+      const that = this;
+      if (this.paused) return;
+      setTimeout(() => {
+        if (that.duration <= that.internalPosition) return;
+        that.internalPosition += 100;
+        that.timer();
+      }, 100);
+    },
+  },
+
+  watch: {
+    paused: {
+      immediate: true,
+      handler: 'timer',
     },
   },
 };
@@ -81,17 +120,22 @@ export default {
 
 <style lang="stylus" scoped>
 .progress-bar
-  position relative
+  display grid
+  grid-template-columns auto 1fr auto
+  grid-column-gap 8px
+  align-items center
   width 100%
 
   .bar
+    flex 1
+    position relative
+
+  .progress
     position absolute
-    left 0
-    top 0
-    display inline-block
 
   .slider
     position absolute
     display inline-block
+    margin-top -2px
 </style>
 

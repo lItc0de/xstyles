@@ -1,6 +1,6 @@
 # Btn
 
 ```js
-<template><btn>Click</btn></template>
+<template><x-btn>Click</x-btn></template>
 <script></script>
 ```

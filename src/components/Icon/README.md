@@ -2,7 +2,7 @@
 
 ```js
 <template>
-  <icon>bookmark</icon>
+  <x-icon>bookmark</x-icon>
 </template>
 
 <script></script>

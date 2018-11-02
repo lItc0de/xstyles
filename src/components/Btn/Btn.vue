@@ -1,13 +1,13 @@
 <template>
-  <button :style="style" class="btn">
-    <icon v-if="icon" v-bind="$attrs"><slot/></icon>
+  <button :style="style" class="btn" @click="$emit('click')">
+    <x-icon v-if="icon" v-bind="$attrs"><slot/></x-icon>
     <slot v-else/>
   </button>
 </template>
 
 <script>
 export default {
-  name: 'Btn',
+  name: 'XBtn',
 
   props: {
     color: {

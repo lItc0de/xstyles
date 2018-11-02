@@ -1,6 +1,6 @@
 <template>
-  <layout id="xstyles">
-    <nav-bar>
+  <x-layout id="xstyles">
+    <x-nav-bar>
       <ul>
         <li v-for="component in componentNames" :key="component">
           <router-link :to="`/components/${component}`">
@@ -8,9 +8,9 @@
           </router-link>
         </li>
       </ul>
-    </nav-bar>
+    </x-nav-bar>
     <router-view/>
-  </layout>
+  </x-layout>
 </template>
 
 <script>
