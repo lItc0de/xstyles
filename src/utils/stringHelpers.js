@@ -1,3 +1,5 @@
-/* eslint-disable import/prefer-default-export */
-export const capitalize = string =>
-  (typeof string === 'string' ? string.charAt(0).toUpperCase() + string.slice(1) : '');
+export const capitalize = str =>
+  (typeof str === 'string' ? str.charAt(0).toUpperCase() + str.slice(1) : '');
+
+export const camelCaseToDash = str =>
+  str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
