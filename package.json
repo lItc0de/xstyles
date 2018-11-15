@@ -3,7 +3,8 @@
   "main": "./dist/xstyles.common.js",
   "version": "0.1.4",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name xstyles ./src/index.js",
+    "build": "vue-cli-service build --target lib --name xstyles ./src/main.js",
+    "build:lib": "rm -rf ./dist && webpack --config ./config/webpack.prod.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e"
@@ -28,6 +29,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@intervolga/optimize-cssnano-plugin": "^1.0.6",
     "@vue/cli-plugin-babel": "^3.1.1",
     "@vue/cli-plugin-e2e-nightwatch": "^3.1.1",
     "@vue/cli-plugin-eslint": "^3.1.5",
@@ -38,11 +40,19 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
     "lint-staged": "^8.0.4",
+    "mini-css-extract-plugin": "^0.4.4",
     "register-service-worker": "^1.5.2",
+    "style-loader": "^0.23.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "vue-template-compiler": "^2.5.17"
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^4.1.4"
   },
   "peerDependencies": {},
   "license": "MIT"
