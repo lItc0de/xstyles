@@ -5,15 +5,10 @@ cache:
   - node_modules/
 
 stages:
-  - build
   - test
-
-build_app:
-  stage: build
-  script:
-    - yarn install
 
 jest_tests:
   stage: test
   script:
+    - yarn install
     - yarn test:unit
