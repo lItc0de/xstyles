@@ -18,4 +18,3 @@ export default {
   padding-right 8px
   min-height 100%
 </style>
-

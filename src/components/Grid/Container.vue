@@ -12,4 +12,3 @@ export default {
 .container
   padding 24px
 </style>
-

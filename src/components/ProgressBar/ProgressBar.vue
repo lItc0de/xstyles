@@ -138,4 +138,3 @@ export default {
     display inline-block
     margin-top -2px
 </style>
-

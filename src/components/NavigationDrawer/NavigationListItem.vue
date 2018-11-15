@@ -31,4 +31,3 @@ export default {
     &:hover
       background-color #424242
 </style>
-

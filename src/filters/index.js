@@ -1,5 +1,7 @@
-import { addLeadingZero, msToMinSec, toHumanTime } from '../filters/time';
-import { capitalize, camelCaseToDash, dashToCamelCase, deCapitalize, toPx } from '../filters/stringHelpers';
+import { addLeadingZero, msToMinSec, toHumanTime } from './time';
+import {
+  capitalize, camelCaseToDash, dashToCamelCase, deCapitalize, toPx,
+} from './stringHelpers';
 
 export default (Vue) => {
   Vue.filter('addLeadingZero', addLeadingZero);
