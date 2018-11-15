@@ -22,13 +22,14 @@ export default {
 
   computed: {
     style() {
+      const { toPx } = this.$options.filters;
       const { size } = this;
-      const sizeStr = `${size}px`;
+      const sizeStr = toPx(size);
       return {
         color: this.color,
         width: sizeStr,
         height: sizeStr,
-        fontSize: `${size - 6}px`,
+        fontSize: `calc(${sizeStr} - 6px)`,
         lineHeight: sizeStr,
       };
     },

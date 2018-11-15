@@ -9,3 +9,8 @@ export const msToMinSec = (ms) => {
   const seconds = addLeadingZero(Math.round(total % 60));
   return `${minutes}:${seconds}`;
 };
+
+export const toHumanTime = (time) => {
+  const date = new Date(time);
+  return date.toLocaleDateString('de-DE');
+};

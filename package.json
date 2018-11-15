@@ -3,14 +3,15 @@
   "main": "./dist/xstyles.common.js",
   "version": "0.1.2",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name xstyles ./src/components/index.js",
+    "build": "vue-cli-service build --target lib --name xstyles ./src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e"
   },
   "files": [
     "dist/*",
-    "src/*"
+    "src/*",
+    "*.js"
   ],
   "husky": {
     "hooks": {

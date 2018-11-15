@@ -1,6 +1,6 @@
 <template>
   <button :style="style" class="btn" @click="$emit('click')">
-    <x-icon v-if="icon" v-bind="$attrs"><slot/></x-icon>
+    <x-icon v-if="icon" v-bind="$attrs" :color="color"><slot/></x-icon>
     <slot v-else/>
   </button>
 </template>
@@ -9,10 +9,12 @@
 export default {
   name: 'XBtn',
 
+  inheritAttrs: false,
+
   props: {
     color: {
       type: String,
-      default: '#eee',
+      default: '#424242',
     },
 
     depressed: {
@@ -29,6 +31,11 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    area: {
+      type: String,
+      default: '',
+    },
   },
 
   computed: {
@@ -37,19 +44,17 @@ export default {
         backgroundColor: this.color,
       };
 
-      if (this.depressed) {
-        style.boxShadow = 'none';
-      }
+      if (this.depressed) style.boxShadow = 'none';
 
-      if (this.flat) {
-        style.boxShadow = 'none';
-      }
+      if (this.flat) style.boxShadow = 'none';
 
       if (this.icon) {
         style.boxShadow = 'none';
         style.backgroundColor = 'transparent';
         style.padding = 0;
       }
+
+      if (this.area) style.gridArea = this.area;
 
       return style;
     },
@@ -60,6 +65,7 @@ export default {
 <style lang="stylus" scoped>
 .btn
   border none
+  color inherit
   outline none
   cursor pointer
   font-size 16px
