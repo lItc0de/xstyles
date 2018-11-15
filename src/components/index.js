@@ -1,5 +1,3 @@
-import installFilters from '../filters';
-
 const context = require.context('.', true, /\.vue$/);
 
 const components = {};
@@ -15,12 +13,6 @@ const componentNames = Object.keys(components);
 
 const install = (Vue) => {
   componentNames.forEach(name => Vue.component(name, components[name]));
-  installFilters(Vue);
 };
 
-export default {
-  install,
-  components,
-};
-
-export { componentNames };
+export { componentNames, install, components };

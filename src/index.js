@@ -1,4 +1,6 @@
-import XStyles from './components';
+import { install, components } from './components';
+import { installFilters, filters } from './filters';
 import './style.styl';
 
-export default XStyles;
+export { components, installFilters, filters };
+export default { install };
