@@ -13,18 +13,16 @@
     "src/*",
     "*.js"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.js": [
-      "yarn lint --fix",
+      "vue-cli-service lint",
       "git add"
     ],
     "*.vue": [
-      "yarn lint --fix",
+      "vue-cli-service lint",
       "git add"
     ]
   },
@@ -40,7 +38,6 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
-    "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
     "register-service-worker": "^1.5.2",
     "stylus": "^0.54.5",
