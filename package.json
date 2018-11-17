@@ -1,7 +1,7 @@
 {
   "name": "@litc0de/xstyles",
   "main": "./dist/xstyles.common.js",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "scripts": {
     "build": "vue-cli-service build --target lib --name xstyles ./src/index.js",
     "build:lib": "rm -rf ./dist && webpack --config ./config/webpack.prod.js",
