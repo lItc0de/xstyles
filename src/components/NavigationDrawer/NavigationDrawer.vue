@@ -17,8 +17,9 @@ export default {
 
   computed: {
     style() {
+      const { border } = this.$theme;
       const style = {};
-      if (this.left) style.borderRight = '1px solid #424242';
+      if (this.left) style.borderRight = `1px solid ${border}`;
       return style;
     },
   },

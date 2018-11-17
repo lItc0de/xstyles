@@ -78,7 +78,7 @@ export default {
 
   &:hover
     border-radius 2px
-    background-color #424242
+    background-color var(--backgroundColorLight)
 
     .number
       display none
@@ -87,6 +87,6 @@ export default {
       display block
 
 .track-header
-  border-bottom 1px solid #424242
+  border-bottom 1px solid var(--backgroundColorLight)
   margin-bottom 16px
 </style>

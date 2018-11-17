@@ -29,5 +29,5 @@ export default {
     color inherit
     text-decoration none
     &:hover
-      background-color #424242
+      background-color var(--backgroundColorLight)
 </style>

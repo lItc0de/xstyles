@@ -22,15 +22,15 @@ export default {
   props: {
     backgroundColor: {
       type: String,
-      default: '#eee',
+      default() { return this.$theme.backgroundColorLight; },
     },
     color: {
       type: String,
-      default: '#aaa',
+      default() { return this.$theme.backgroundColor; },
     },
     sliderColor: {
       type: String,
-      default: '#666',
+      default() { return this.$theme.color; },
     },
     radius: {
       type: String,

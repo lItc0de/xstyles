@@ -14,7 +14,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: '#424242',
+      default() { return this.$theme.backgroundColorLight; },
     },
 
     depressed: {
@@ -41,6 +41,11 @@ export default {
       type: String,
       default: 'inherit',
     },
+
+    primary: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
@@ -61,6 +66,8 @@ export default {
       }
 
       if (this.area) style.gridArea = this.area;
+
+      if (this.primary) style.backgroundColor = this.$theme.primary;
 
       return style;
     },

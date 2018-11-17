@@ -11,7 +11,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: '#666',
+      default() { return this.$theme.textSecondary; },
     },
 
     size: {

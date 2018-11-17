@@ -1,0 +1,11 @@
+{
+  "primary": "#ff0043",
+
+  "backgroundColor": "#2D2D2D",
+  "backgroundColorLight": "#424242",
+  "color": "#EAEAEA",
+  "textSecondary": "#818181",
+  "selection": "rgba(255, 255, 255, .1)",
+  "border": "#424242",
+  "boxShadow": "rgba(22, 22, 22, .9)"
+}

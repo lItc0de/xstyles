@@ -3,7 +3,7 @@
   "main": "./dist/xstyles.common.js",
   "version": "0.1.5",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name xstyles ./src/main.js",
+    "build": "vue-cli-service build --target lib --name xstyles ./src/index.js",
     "build:lib": "rm -rf ./dist && webpack --config ./config/webpack.prod.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
@@ -54,6 +54,8 @@
     "webpack-cli": "^3.1.2",
     "webpack-merge": "^4.1.4"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "vue-head": "^2.1.0"
+  },
   "license": "MIT"
 }

@@ -40,8 +40,9 @@ export default {
 
   computed: {
     style() {
+      const { textSecondary } = this.$theme;
       const style = {};
-      if (this.subtitle) style.color = '#818181';
+      if (this.subtitle) style.color = textSecondary;
       if (this.title) {
         style.fontSize = '40px';
         style.lineHeight = '48px';

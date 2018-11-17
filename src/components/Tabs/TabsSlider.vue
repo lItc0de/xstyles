@@ -35,21 +35,23 @@ export default {
   flex-flow row
   margin 0
   padding 0
-  border-bottom 1px solid #424242
+  border-bottom 1px solid var(--border)
 
   .slider-item
     position relative
     list-style none
     padding 8px
     cursor pointer
+
     &:hover
-      background-color #424242
+      background-color var(--backgroundColorLight)
+
     &.active::after
       position absolute
       content ''
       display block
       width 100%
-      border-bottom 3px solid #ff0043
+      border-bottom 3px solid var(--primary)
       left 0
       bottom -1px
 </style>

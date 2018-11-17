@@ -6,7 +6,7 @@ const { resolve } = require('path');
 const base = require('./webpack.base');
 
 module.exports = merge(base, {
-  entry: resolve(__dirname, '..', 'src', 'main.js'),
+  entry: resolve(__dirname, '..', 'src', 'index.js'),
 
   output: {
     path: resolve(__dirname, '..', 'dist'),

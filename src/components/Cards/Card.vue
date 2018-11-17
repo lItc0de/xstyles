@@ -26,7 +26,7 @@ export default {
 
 <style lang="stylus" scoped>
 .card
-  background-color #2D2D2D
+  background-color var(--backgroundColor)
   border-radius 2px
-  box-shadow 0 0 7px rgba(22, 22, 22, .9)
+  box-shadow 0 0 7px var(--boxShadow)
 </style>
