@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'XA',
+  name: 'XLink',
 
   props: {
     to: {

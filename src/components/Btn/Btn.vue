@@ -1,6 +1,6 @@
 <template>
   <button :style="style" class="btn" @click="$emit('click')">
-    <x-icon v-if="icon" v-bind="$attrs" :color="color"><slot/></x-icon>
+    <x-icon v-if="icon" v-bind="$attrs" :color="textColor"><slot/></x-icon>
     <slot v-else/>
   </button>
 </template>
@@ -36,17 +36,23 @@ export default {
       type: String,
       default: '',
     },
+
+    textColor: {
+      type: String,
+      default: 'inherit',
+    },
   },
 
   computed: {
     style() {
       const style = {
         backgroundColor: this.color,
+        color: this.textColor,
       };
 
       if (this.depressed) style.boxShadow = 'none';
 
-      if (this.flat) style.boxShadow = 'none';
+      if (this.flat) style.backgroundColor = 'transparent';
 
       if (this.icon) {
         style.boxShadow = 'none';
@@ -65,7 +71,6 @@ export default {
 <style lang="stylus" scoped>
 .btn
   border none
-  color inherit
   outline none
   cursor pointer
   font-size 16px
