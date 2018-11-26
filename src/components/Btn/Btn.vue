@@ -1,22 +1,21 @@
 <template>
-  <button :style="style" class="btn" @click="$emit('click')">
-    <x-icon v-if="icon" v-bind="$attrs" :color="textColor"><slot/></x-icon>
+  <button :style="style" class="btn" @click="handleClick">
+    <x-icon v-if="icon" size="2rem"><slot/></x-icon>
     <slot v-else/>
   </button>
 </template>
 
 <script>
+import { fontMixin, colorMixin, rippleMixin } from '../../mixins/styling';
+
 export default {
   name: 'XBtn',
+
+  mixins: [fontMixin, colorMixin, rippleMixin],
 
   inheritAttrs: false,
 
   props: {
-    color: {
-      type: String,
-      default() { return this.$theme.backgroundColorLight; },
-    },
-
     depressed: {
       type: Boolean,
       default: false,
@@ -31,29 +30,18 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
 
-    area: {
-      type: String,
-      default: '',
-    },
-
-    textColor: {
-      type: String,
-      default: 'inherit',
-    },
-
-    primary: {
-      type: Boolean,
-      default: false,
+  methods: {
+    handleClick(e) {
+      this.rippleMixin(e);
+      this.$emit('click');
     },
   },
 
   computed: {
     style() {
-      const style = {
-        backgroundColor: this.color,
-        color: this.textColor,
-      };
+      const style = {};
 
       if (this.depressed) style.boxShadow = 'none';
 
@@ -62,14 +50,10 @@ export default {
       if (this.icon) {
         style.boxShadow = 'none';
         style.backgroundColor = 'transparent';
-        style.padding = 0;
+        style.borderRadius = '50%';
       }
 
-      if (this.area) style.gridArea = this.area;
-
-      if (this.primary) style.backgroundColor = this.$theme.primary;
-
-      return style;
+      return { ...this.colorMixin, ...this.fontMixin, ...style };
     },
   },
 };
@@ -77,13 +61,15 @@ export default {
 
 <style lang="stylus" scoped>
 .btn
+  position relative
   border none
   outline none
   cursor pointer
-  font-size 16px
-  line-height 20px
-  padding 4px 8px
+  background #89669b
+  padding .25rem .5rem
   border-radius 2px
+  font-size 2rem
+  line-height 2.5rem
   box-shadow 0 3px 3px rgba(0, 0, 0, 0.2)
-  margin 0 4px
+  overflow hidden
 </style>

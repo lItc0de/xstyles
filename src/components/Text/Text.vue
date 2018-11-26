@@ -3,8 +3,12 @@
 </template>
 
 <script>
+import { fontMixin, colorMixin } from '../../mixins/styling';
+
 export default {
   name: 'XText',
+
+  mixins: [fontMixin, colorMixin],
 
   props: {
     title: {
@@ -17,17 +21,12 @@ export default {
       default: false,
     },
 
-    area: {
-      type: String,
-      default: '',
-    },
-
-    bold: {
+    underline: {
       type: Boolean,
       default: false,
     },
 
-    inline: {
+    slim: {
       type: Boolean,
       default: false,
     },
@@ -35,18 +34,28 @@ export default {
 
   computed: {
     style() {
-      const { textSecondary } = this.$theme;
       const style = {};
-      if (this.subtitle) style.color = textSecondary;
+      const { primary } = this.$theme;
+
+      if (this.slim) style.margin = 0;
+      if (this.underline) style.textDecoration = 'underline';
+
       if (this.title) {
-        style.fontSize = '40px';
-        style.lineHeight = '48px';
+        style.fontSize = '4rem';
+        style.lineHeight = '4.5rem';
+        style.margin = '0 0 1rem 0';
+        style.fontWeight = 'bold';
+        style.borderLeft = `.25rem solid ${primary}`;
+        style.paddingLeft = '1rem';
+      }
+
+      if (this.subtitle) {
+        style.fontSize = '2rem';
+        style.lineHeight = '2.5rem';
         style.fontWeight = 'bold';
       }
-      if (this.area) style.gridArea = this.area;
-      if (this.bold) style.fontWeight = 'bold';
-      if (this.inline) style.display = 'inline';
-      return style;
+
+      return { ...this.fontMixin, ...this.colorMixin, ...style };
     },
   },
 };
@@ -54,5 +63,7 @@ export default {
 
 <style lang="stylus" scoped>
 .text
-  margin 0
+  text-overflow ellipsis
+  overflow hidden
+  margin 0 0 .5rem 0
 </style>

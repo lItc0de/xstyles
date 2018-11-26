@@ -4,7 +4,7 @@
       v-for="tab in tabs"
       :key="tab"
       :class="['slider-item', (tab === value ? 'active' : null)]"
-      @click="$emit('input', tab)"
+      @click="(e) => handleClick(e, tab)"
     >
       {{ tab }}
     </li>
@@ -12,8 +12,12 @@
 </template>
 
 <script>
+import { rippleMixin } from '../../mixins/styling';
+
 export default {
   name: 'XTabsSlider',
+
+  mixins: [rippleMixin],
 
   props: {
     tabs: {
@@ -24,6 +28,13 @@ export default {
     value: {
       type: String,
       required: true,
+    },
+  },
+
+  methods: {
+    handleClick(e, tab) {
+      this.rippleMixin(e);
+      this.$emit('input', tab);
     },
   },
 };
@@ -42,9 +53,7 @@ export default {
     list-style none
     padding 8px
     cursor pointer
-
-    &:hover
-      background-color var(--backgroundColorLight)
+    overflow hidden
 
     &.active::after
       position absolute

@@ -1,6 +1,6 @@
 <template>
   <li class="navigation-list-item">
-    <router-link v-if="to" :to="to" class="item-body"><slot/></router-link>
+    <x-link v-if="to" :to="to" class="item-body"><slot/></x-link>
     <div v-else class="item-body"><slot/></div>
   </li>
 </template>
@@ -24,7 +24,7 @@ export default {
 
   .item-body
     display block
-    padding 8px
+    padding .5rem
     cursor pointer
     color inherit
     text-decoration none

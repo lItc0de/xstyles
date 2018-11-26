@@ -6,32 +6,19 @@
 </template>
 
 <script>
+import { fontMixin, colorMixin } from '../../mixins/styling';
+
 export default {
   name: 'XIcon',
-  props: {
-    color: {
-      type: String,
-      default() { return this.$theme.textSecondary; },
-    },
 
-    size: {
-      type: [String, Number],
-      default: 24,
-    },
-  },
+  mixins: [fontMixin, colorMixin],
 
   computed: {
     style() {
-      const { toPx } = this.$options.filters;
-      const { size } = this;
-      const sizeStr = toPx(size);
-      return {
-        color: this.color,
-        width: sizeStr,
-        height: sizeStr,
-        fontSize: `calc(${sizeStr} - 6px)`,
-        lineHeight: sizeStr,
+      const style = {
       };
+
+      return { ...this.colorMixin, ...this.fontMixin, ...style };
     },
   },
 };

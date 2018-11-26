@@ -5,21 +5,20 @@
     class="track"
   >
     <div class="track-grid">
-      <x-img v-if="track.album" :src="track.album.images[0].url" area="img" class="play-img"/>
-      <x-text area="number" class="number">{{ track.track_number }}</x-text>
+      <x-img v-if="track.album" :src="track.album.images[0].url" class="play-img"/>
+      <x-text class="number">{{ track.track_number }}</x-text>
       <x-btn
-        area="number"
         class="play-btn"
         size="35px"
         color="#fff"
         icon
         @click="$emit('play-track', track.uri)"
       >play-circle-outline</x-btn>
-      <x-text area="name" bold>{{ track.name }}</x-text>
-      <x-text area="artists" subtitle>
+      <x-text class="name" bold>{{ track.name }}</x-text>
+      <x-text class="artists" subtitle>
         {{ track.artists.map(artist => artist.name).join(', ') }}
       </x-text>
-      <x-text area="duration" subtitle>{{ track.duration_ms | msToMinSec }}</x-text>
+      <x-text class="duration" subtitle>{{ track.duration_ms | msToMinSec }}</x-text>
     </div>
   </li>
   <li v-else class="track-header">
@@ -69,10 +68,12 @@ export default {
   grid-template-areas "number name artists duration"
 
 .number
+    grid-area 'number'
     justify-self center
 
 .track
   .play-btn
+    grid-area 'number'
     display none
     z-index 1
 
@@ -85,6 +86,18 @@ export default {
 
     .play-btn
       display block
+
+  .play-img
+    grid-area 'img'
+
+  .name
+    grid-area 'name'
+
+  .artists
+    grid-area 'artists'
+
+  .duration
+    grid-area 'duration'
 
 .track-header
   border-bottom 1px solid var(--backgroundColorLight)

@@ -1,10 +1,5 @@
 <template>
-  <x-a class="img" v-if="to" :to="to" :style="style">
-    <div v-if="background" class="bg-img" :style="bgStyle"/>
-    <img v-else class="img-image" :src="src">
-    <slot/>
-  </x-a>
-  <div v-else class="img" :style="style">
+  <div class="img" :style="style">
     <div v-if="background" class="bg-img" :style="bgStyle"/>
     <img v-else class="img-image" :src="src">
     <slot/>
@@ -20,10 +15,6 @@ export default {
       type: String,
       required: true,
     },
-    to: {
-      type: [String, Object],
-      default: null,
-    },
 
     background: {
       type: Boolean,
@@ -33,11 +24,6 @@ export default {
     width: {
       type: [Number, String],
       default: 'initial',
-    },
-
-    area: {
-      type: String,
-      default: '',
     },
   },
 
@@ -55,8 +41,6 @@ export default {
         width: toPx(width),
       };
 
-      if (this.area) style.gridArea = this.area;
-
       return style;
     },
   },
@@ -72,9 +56,4 @@ export default {
     border-radius 2px
   .bg-img
     height 200px
-</style>
-
-<style lang="stylus">
-.card > .img .bg-img
-  border-radius 2px 2px 0 0
 </style>

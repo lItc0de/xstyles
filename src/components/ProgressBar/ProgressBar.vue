@@ -122,7 +122,7 @@ export default {
 .progress-bar
   display grid
   grid-template-columns auto 1fr auto
-  grid-column-gap 8px
+  grid-column-gap .5rem
   align-items center
   width 100%
 

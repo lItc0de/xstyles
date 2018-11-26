@@ -26,7 +26,6 @@ export default {
     },
 
     style() {
-      const { selection } = this.$theme;
       const { $theme } = this;
       const variables = Object.keys($theme).map(key => `--${key}: ${$theme[key]};`).join('');
 
@@ -35,11 +34,17 @@ export default {
           type: 'text/css',
           inner: `
             :root { ${variables} }
-            ::selection { background: ${selection}; }
-            ::-moz-selection { background: ${selection}; }
           `,
           undo: false,
         },
+      ];
+    },
+
+    link() {
+      const { fontUrl } = this.$theme;
+
+      return [
+        { rel: 'stylesheet', href: fontUrl },
       ];
     },
   },

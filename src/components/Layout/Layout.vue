@@ -14,7 +14,7 @@ export default {
 .layout
   display grid
   grid-template-columns 150px auto
-  grid-column-gap 8px
-  padding-right 8px
+  grid-column-gap .5rem
+  padding-right .5rem
   min-height 100%
 </style>

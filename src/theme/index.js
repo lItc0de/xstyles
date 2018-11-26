@@ -1,4 +1,4 @@
-import defaultTheme from './default.json';
+import defaultTheme from './default';
 
 export default (Vue, options = { theme: {} }) => {
   const theme = { ...defaultTheme, ...options.theme };

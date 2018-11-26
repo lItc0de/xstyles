@@ -30,5 +30,5 @@ export default {
 .navigation-drawer
   max-height 100%
   overflow-y auto
-  padding 24px 0
+  padding 1.5rem
 </style>
