@@ -3,6 +3,11 @@ image: node:10
 cache:
   paths:
   - node_modules/
+  - .yarn
+
+before_script:
+  - apt-get update -qq && apt-get install
+  - yarn install
 
 stages:
   - test
@@ -10,5 +15,4 @@ stages:
 jest_tests:
   stage: test
   script:
-    - yarn install
     - yarn test:unit
