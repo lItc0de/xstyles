@@ -5,14 +5,13 @@ cache:
   - node_modules/
   - .yarn
 
-before_script:
-  - apt-get update -qq && apt-get install
-  - yarn install
-
 stages:
   - test
 
 jest_tests:
   stage: test
+  before_script:
+  - yarn config set cache-folder .yarn
+  - yarn install
   script:
     - yarn test:unit
