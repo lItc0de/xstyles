@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Prism from 'vue-prism-component'; // eslint-disable-line
+import Prism from 'vue-prism-component';
 
 export default {
   name: 'XCode',
