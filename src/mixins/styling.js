@@ -52,7 +52,7 @@ export const fontMixin = {
       const style = {};
       if (this.bold) style.fontWeight = 'bold';
       if (this.inline) style.display = 'inline';
-      if (Number.isNaN(this.size)) {
+      if (Number.isNaN(Number(this.size))) {
         style.fontSize = this.size;
         style.lineHeight = `calc(${this.size} + .5rem)`;
       } else {

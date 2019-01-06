@@ -69,6 +69,8 @@ export default {
   padding .25rem .5rem
   border-radius 2px
   font-size 2rem
+  font inherit
+  font-weight bold
   line-height 2.5rem
   box-shadow 0 3px 3px rgba(0, 0, 0, 0.2)
   overflow hidden
