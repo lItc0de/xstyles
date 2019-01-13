@@ -45,6 +45,11 @@ export const fontMixin = {
       type: [String, Number],
       default: 0,
     },
+
+    slim: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
@@ -58,6 +63,10 @@ export const fontMixin = {
       } else {
         style.fontSize = `${Number(this.size) * 0.005 + 1}rem`;
         style.lineHeight = `${Number(this.size) * 0.005 + 1.5}rem`;
+      }
+      if (this.slim) {
+        style.margin = 0;
+        style.lineHeight = style.fontSize;
       }
       return style;
     },

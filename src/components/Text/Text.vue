@@ -25,11 +25,6 @@ export default {
       type: Boolean,
       default: false,
     },
-
-    slim: {
-      type: Boolean,
-      default: false,
-    },
   },
 
   computed: {
@@ -37,7 +32,6 @@ export default {
       const style = {};
       const { primary } = this.$theme;
 
-      if (this.slim) style.margin = 0;
       if (this.underline) style.textDecoration = 'underline';
 
       if (this.title) {

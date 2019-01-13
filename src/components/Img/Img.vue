@@ -1,9 +1,9 @@
 <template>
-  <div class="img" :style="style">
-    <div v-if="background" class="bg-img" :style="bgStyle"/>
+    <div v-if="background" class="img" :style="style">
+      <div class="bg-img" :style="bgStyle"/>
+      <slot/>
+    </div>
     <img v-else class="img-image" :src="src">
-    <slot/>
-  </div>
 </template>
 
 <script>
@@ -51,9 +51,11 @@ export default {
 .img
   text-overflow ellipsis
   overflow: hidden;
-  .img-image
-    width 100%
-    border-radius 2px
-  .bg-img
-    height 200px
+
+.img-image
+  width 100%
+  border-radius 2px
+
+.bg-img
+  height 200px
 </style>
