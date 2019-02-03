@@ -33,15 +33,14 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",
-    "@vue/cli-plugin-e2e-nightwatch": "^3.3.0",
     "@vue/cli-plugin-eslint": "^3.3.0",
     "@vue/cli-plugin-pwa": "^3.3.0",
     "@vue/cli-plugin-unit-jest": "^3.3.0",
     "@vue/cli-service": "^3.3.1",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.28",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.0.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.0.0",
     "lint-staged": "^8.1.0",
     "register-service-worker": "^1.5.2",
     "stylus": "^0.54.5",
@@ -50,5 +49,14 @@
     "vue-template-compiler": "^2.5.22"
   },
   "peerDependencies": {},
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/litc0de/xstyles.git"
+  },
+  "author": "litc0de",
+  "bugs": {
+    "url": "https://gitlab.com/litc0de/xstyles/issues"
+  },
+  "homepage": "https://gitlab.com/litc0de/xstyles#readme"
 }
