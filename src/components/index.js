@@ -1,4 +1,8 @@
-const context = require.context('.', true, /\.vue$/);
+const context = require.context(
+  '.',
+  true,
+  /^(?!.*(?:__tests__|test.js$|spec.js$|index.js$)).*(?:.vue$|.js$)/,
+);
 
 const components = {};
 
