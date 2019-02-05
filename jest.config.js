@@ -12,12 +12,16 @@ module.exports = {
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^utils/(.*)$': '<rootDir>/src/utils/$1',
   },
+  transformIgnorePatterns: [
+    'node_modules/(?!(vue)/)',
+  ],
   snapshotSerializers: [
     'jest-serializer-vue',
   ],
   testMatch: [
-    '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)',
+    '**/tests/unit/**/*.spec.(js|jsx)|**/__tests__/*.(js|jsx)',
   ],
   testURL: 'http://localhost/',
 };
