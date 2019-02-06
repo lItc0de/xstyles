@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'XNavigationListItem',
+  name: 'XNavigationLi',
 
   props: {
     to: {
