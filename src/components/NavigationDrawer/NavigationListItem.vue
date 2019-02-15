@@ -1,7 +1,12 @@
 <template>
   <li class="navigation-list-item">
-    <x-link v-if="to" :to="to" class="item-body"><slot/></x-link>
-    <div v-else class="item-body"><slot/></div>
+    <template v-if="title">
+      <h6 class="title mb-0"><slot/></h6>
+    </template>
+    <template v-else>
+      <x-link v-if="to" :to="to" class="item-body"><slot/></x-link>
+      <div v-else class="item-body"><slot/></div>
+    </template>
   </li>
 </template>
 
@@ -13,6 +18,11 @@ export default {
     to: {
       type: [Object, String],
       default: null,
+    },
+
+    title: {
+      type: Boolean,
+      default: false,
     },
   },
 };
