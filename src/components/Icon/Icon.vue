@@ -1,7 +1,7 @@
 <template>
   <i
     :style="style"
-    :class="`icon mdi mdi-${$slots.default[0].text}`"
+    :class="`icon mdi mdi-${$slots.default[0].text.trim()}`"
   />
 </template>
 

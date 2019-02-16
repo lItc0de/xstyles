@@ -22,5 +22,6 @@ export default {
 .container
   display flex
   flex-flow column
+  flex-wrap wrap
   padding 1.5rem
 </style>

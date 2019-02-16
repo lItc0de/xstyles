@@ -1,9 +1,10 @@
 <template>
   <div class="card" :style="style">
-    <x-container v-if="showSpinner" align-items="center">
-      <x-spinner/>
-    </x-container>
-    <slot v-else/>
+    <slot>
+      <x-container align-items="center">
+        <x-spinner/>
+      </x-container>
+    </slot>
   </div>
 </template>
 
@@ -16,11 +17,6 @@ export default {
       type: [String, Number],
       default: 'initial',
     },
-
-    loading: {
-      type: Boolean,
-      default: false,
-    },
   },
 
   computed: {
@@ -29,10 +25,6 @@ export default {
       return {
         width: toPx(this.width),
       };
-    },
-
-    showSpinner() {
-      return !this.$slots.default || this.loading;
     },
   },
 };

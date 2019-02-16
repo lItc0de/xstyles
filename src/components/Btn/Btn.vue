@@ -49,7 +49,7 @@ export default {
 
       if (this.icon) {
         style.boxShadow = 'none';
-        style.backgroundColor = 'transparent';
+        style.backgroundColor = this.backgroundColor || 'transparent';
         style.borderRadius = '50%';
       }
 
