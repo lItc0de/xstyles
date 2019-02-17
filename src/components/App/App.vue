@@ -11,7 +11,7 @@ export default {
       const {
         color,
         backgroundColor,
-      } = this.$theme;
+      } = this.$xstyles.theme.colors;
 
       return {
         color,
@@ -25,23 +25,8 @@ export default {
       inner: 'x-styles',
     },
 
-    style() {
-      const { $theme } = this;
-      const variables = Object.keys($theme).map(key => `--${key}: ${$theme[key]};`).join('');
-
-      return [
-        {
-          type: 'text/css',
-          inner: `
-            :root { ${variables} }
-          `,
-          undo: false,
-        },
-      ];
-    },
-
     link() {
-      const { fontUrl } = this.$theme;
+      const { fontUrl } = this.$xstyles.theme.typography;
 
       return [
         { rel: 'stylesheet', href: fontUrl },

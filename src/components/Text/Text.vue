@@ -30,7 +30,7 @@ export default {
   computed: {
     style() {
       const style = {};
-      const { primary } = this.$theme;
+      const { primary } = this.$xstyles.theme.colors;
 
       if (this.underline) style.textDecoration = 'underline';
 

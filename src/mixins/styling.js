@@ -1,5 +1,6 @@
 function convertColor(color) {
-  return Object.keys(this.$theme).includes(color) ? this.$theme[color] : color;
+  return Object.keys(this.$xstyles.theme.colors).includes(color)
+    ? this.$xstyles.theme.colors[color] : color;
 }
 
 export const colorMixin = {

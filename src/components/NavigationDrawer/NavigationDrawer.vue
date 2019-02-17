@@ -17,7 +17,7 @@ export default {
 
   computed: {
     style() {
-      const { border } = this.$theme;
+      const { border } = this.$xstyles.theme.colors;
       const style = {};
       if (this.left) style.borderRight = `1px solid ${border}`;
       return style;
