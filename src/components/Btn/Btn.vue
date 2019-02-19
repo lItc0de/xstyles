@@ -67,7 +67,7 @@ export default {
   cursor pointer
   background #89669b
   padding .25rem .5rem
-  border-radius 2px
+  border-radius var(--borderRadius)
   font-size 2rem
   font inherit
   font-weight bold

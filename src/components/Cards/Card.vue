@@ -32,9 +32,9 @@ export default {
 
 <style lang="stylus" scoped>
 .card
-  background-color rgba(255, 255, 255, .03)
-  border-radius 2px
-  box-shadow 0 0 7px var(--boxShadow)
+  background-color var(--backgroundColorLight)
+  border-radius var(--borderRadius)
+  box-shadow var(--boxShadowSpread) var(--boxShadow)
   overflow hidden
   overflow-x auto
 </style>

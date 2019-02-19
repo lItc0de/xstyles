@@ -10,12 +10,9 @@ export default {
 
 <style lang="stylus" scoped>
 .title
-  text-overflow ellipsis
-  overflow hidden
-  font-size 4rem
-  line-height 4.5rem
-  margin 0 0 3rem 0
-  font-weight bold
   border-left .25rem solid var(--primary)
+  margin 0 0 3rem 0
+  overflow hidden
   padding-left 1rem
+  text-overflow ellipsis
 </style>

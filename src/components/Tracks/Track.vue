@@ -114,7 +114,7 @@ export default {
     grid-area 'duration'
 
   &:hover
-    border-radius 2px
+    border-radius var(--borderRadius)
     background-color var(--backgroundColorLight)
 
     .play-img

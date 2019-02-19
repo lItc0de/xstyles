@@ -78,7 +78,7 @@ export default {
     z-index 1
 
   &:hover
-    border-radius 2px
+    border-radius var(--borderRadius)
     background-color var(--backgroundColorLight)
 
     .number

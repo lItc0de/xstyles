@@ -20,6 +20,6 @@ export default {
 .prism
   margin 0
   padding 1.5rem
-  border-radius 2px
+  border-radius var(--borderRadius)
   background-color transparent
 </style>

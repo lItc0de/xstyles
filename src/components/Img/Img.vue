@@ -54,7 +54,7 @@ export default {
 
 .img-image
   width 100%
-  border-radius 2px
+  border-radius var(--borderRadius)
 
 .bg-img
   height 200px
