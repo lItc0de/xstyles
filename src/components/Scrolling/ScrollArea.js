@@ -17,7 +17,6 @@ export default {
   },
 
   mounted() {
-    debugger;
   },
 
   render(createElement) {
