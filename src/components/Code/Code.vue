@@ -21,5 +21,5 @@ export default {
   margin 0
   padding 1.5rem
   border-radius var(--borderRadius)
-  background-color transparent
+  background-color var(--color)
 </style>

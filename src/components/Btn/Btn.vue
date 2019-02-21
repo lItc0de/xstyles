@@ -61,17 +61,16 @@ export default {
 
 <style lang="stylus" scoped>
 .btn
-  position relative
   border none
-  outline none
-  cursor pointer
-  background #89669b
-  padding .25rem .5rem
   border-radius var(--borderRadius)
-  font-size 2rem
+  box-shadow 0 3px 3px rgba(0, 0, 0, 0.2)
+  cursor pointer
   font inherit
+  font-size 2rem
   font-weight bold
   line-height 2.5rem
-  box-shadow 0 3px 3px rgba(0, 0, 0, 0.2)
+  outline none
   overflow hidden
+  padding .25rem .5rem
+  position relative
 </style>
