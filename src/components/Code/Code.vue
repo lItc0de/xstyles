@@ -1,17 +1,20 @@
 <template>
-  <prism class="prism" v-bind="$attrs"><slot/></prism>
+  <x-markdown>
+```{{ language }}
+<slot/>
+```
+</x-markdown>
 </template>
 
 <script>
-import Prism from 'vue-prism-component';
-
 export default {
   name: 'XCode',
 
-  inheritAttrs: false,
-
-  components: {
-    Prism,
+  props: {
+    language: {
+      type: String,
+      default: '',
+    },
   },
 };
 </script>
