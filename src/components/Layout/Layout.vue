@@ -25,7 +25,7 @@ fontSizeTitle = 1.5rem
   display grid
   grid-template-columns 250px 1fr
   grid-template-areas "navigation content"
-  height 100%
+  min-height 100%
 
   .content
     grid-area content
