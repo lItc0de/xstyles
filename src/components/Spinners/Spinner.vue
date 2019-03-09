@@ -47,9 +47,9 @@ duration = 1.4s
 
 @keyframes colors
   0%
-    stroke #FFFFFF
+    stroke var(--gradientFrom)
   50%
-    stroke #a07bcd
+    stroke var(--gradientTo)
   100%
     stroke var(--primary)
 
