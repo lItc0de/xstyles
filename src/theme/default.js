@@ -1,6 +1,9 @@
 export default {
   colors: {
     primary: '#f25f5c',
+    gradientFrom: '#c65895',
+    gradientTo: '#7652e7',
+    // usage: linear-gradient(var(--gradiendDeg), var(--gradientFrom), var(--gradientTo))
 
     backgroundColor: '#FAFAFA', // #302D42
     backgroundColorLight: '#FFFFFF',
@@ -16,6 +19,7 @@ export default {
     sizeBase: '16px',
     boxShadowSpread: '0 0 40px',
     borderRadius: '2px',
+    gradientDeg: '45deg',
   },
 
   typography: {
@@ -23,3 +27,4 @@ export default {
     fontUrl: 'https://fonts.googleapis.com/css?family=Rokkitt:400,700',
   },
 };
+// linear-gradient(45deg, #c65895, #7652e7)

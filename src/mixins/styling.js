@@ -8,11 +8,19 @@ export const colorMixin = {
     color: {
       type: String,
       default: 'inherit',
+      description: 'changes the text color of the element',
     },
 
     backgroundColor: {
       type: String,
       default: '',
+      description: 'changes the background color of the element',
+    },
+
+    gradient: {
+      type: Boolean,
+      default: false,
+      description: 'adds an background gradient',
     },
   },
 
@@ -24,6 +32,11 @@ export const colorMixin = {
       style.color = convertColorBound(this.color);
 
       if (this.backgroundColor) style.backgroundColor = convertColorBound(this.backgroundColor);
+      if (this.gradient) {
+        const { sizes, colors } = this.$xstyles.theme;
+        style.background = `linear-gradient(${sizes.gradientDeg}, ${colors.gradientFrom}, ${colors.gradientTo})`;
+      }
+
 
       return style;
     },
@@ -35,21 +48,25 @@ export const fontMixin = {
     bold: {
       type: Boolean,
       default: false,
+      description: 'changes the font weight to bold',
     },
 
     inline: {
       type: Boolean,
       default: false,
+      description: 'displays the element inline',
     },
 
     size: {
       type: [String, Number],
       default: 0,
+      description: 'changes font size and line height',
     },
 
     slim: {
       type: Boolean,
       default: false,
+      description: 'removes margin and reduces line heigt to font size',
     },
   },
 
@@ -99,6 +116,7 @@ export const alignmentMixin = {
     row: {
       type: Boolean,
       default: false,
+      description: 'aligns the content as a row',
     },
   },
 
@@ -130,6 +148,7 @@ export const spacingMixin = {
     slim: {
       type: Boolean,
       default: false,
+      description: 'removes margin and padding',
     },
   },
 
