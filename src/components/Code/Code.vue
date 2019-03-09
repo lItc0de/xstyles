@@ -1,5 +1,5 @@
 <template>
-  <x-markdown>
+  <x-markdown class="markdown">
 ```{{ language }}
 <slot/>
 ```
@@ -14,15 +14,14 @@ export default {
     language: {
       type: String,
       default: '',
+      description: 'language for syntax highlighting',
     },
   },
 };
 </script>
 
 <style lang="stylus" scoped>
-.prism
+.markdown >>> pre
   margin 0
-  padding 1.5rem
   border-radius var(--borderRadius)
-  background-color var(--color)
 </style>
