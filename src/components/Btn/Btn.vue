@@ -19,16 +19,19 @@ export default {
     depressed: {
       type: Boolean,
       default: false,
+      description: 'removes the box shadow',
     },
 
     flat: {
       type: Boolean,
       default: false,
+      description: 'sets the background to transparent',
     },
 
     icon: {
       type: Boolean,
       default: false,
+      description: 'styles the button for a usage with an icon',
     },
   },
 

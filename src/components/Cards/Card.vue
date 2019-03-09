@@ -16,6 +16,7 @@ export default {
     width: {
       type: [String, Number],
       default: 'initial',
+      description: 'sets the card to a fixed width',
     },
   },
 
