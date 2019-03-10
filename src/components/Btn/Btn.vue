@@ -1,7 +1,6 @@
 <template>
   <button :style="style" class="btn" @click="handleClick">
-    <x-icon v-if="icon" size="2rem"><slot/></x-icon>
-    <slot v-else/>
+    <slot/>
   </button>
 </template>
 
@@ -27,12 +26,6 @@ export default {
       default: false,
       description: 'sets the background to transparent',
     },
-
-    icon: {
-      type: Boolean,
-      default: false,
-      description: 'styles the button for a usage with an icon',
-    },
   },
 
   methods: {
@@ -49,12 +42,6 @@ export default {
       if (this.depressed) style.boxShadow = 'none';
 
       if (this.flat) style.backgroundColor = 'transparent';
-
-      if (this.icon) {
-        style.boxShadow = 'none';
-        style.backgroundColor = this.backgroundColor || 'transparent';
-        style.borderRadius = '50%';
-      }
 
       return { ...this.colorMixin, ...this.fontMixin, ...style };
     },
