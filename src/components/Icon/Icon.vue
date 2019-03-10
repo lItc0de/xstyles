@@ -2,11 +2,8 @@
   <svgicon
     :icon="icon"
     :color="color"
-    :dir="dir"
-    :fill="fill"
-    :height="height"
-    :width="width"
-    :scale="scale"
+    :height="height || scale"
+    :width="width || scale"
     :title="title || icon"
   />
 </template>
@@ -26,29 +23,19 @@ export default {
       default: 'var(--color)',
     },
 
-    dir: {
-      type: [String, Object],
-      default: null,
-    },
-
-    fill: {
-      type: Boolean,
-      default: true,
-    },
-
     height: {
       type: String,
-      default: '1rem',
+      default: '',
     },
 
     width: {
       type: String,
-      default: '1rem',
+      default: '',
     },
 
     scale: {
       type: [String, Object],
-      default: '1',
+      default: '1rem',
     },
 
     title: {
