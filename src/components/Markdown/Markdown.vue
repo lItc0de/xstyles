@@ -1,5 +1,5 @@
 <template>
-  <div class="md" v-html="parsedMd" />
+  <div class="markdown" v-html="parsedMd" />
 </template>
 
 <script>
@@ -24,11 +24,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.md
-  >>> pre
-    border-radius var(--borderRadius)
-    background-color var(--color)
+.markdown
+  width 100%
+.markdown >>> pre
+  border-radius var(--borderRadius)
+  background-color var(--color)
+  overflow: auto
 
-    code
-      padding 0
+  code
+    padding 0
 </style>
