@@ -17,10 +17,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-screenMax = 1080px
-fontSizeItem = 1rem
-fontSizeTitle = 1.5rem
-
 .layout
   display grid
   grid-template-columns 250px minmax(0, 1fr)
@@ -31,36 +27,9 @@ fontSizeTitle = 1.5rem
     grid-area content
 
   .navigation
+    background-color var(--backgroundColor)
     grid-area navigation
     position fixed
     overflow-y auto
-
-@media (max-width: screenMax)
-  .layout
-    grid-template-columns 70px minmax(0, 1fr)
-
-  .navigation
-    >>> .title
-      font-size 0
-
-      &::first-letter
-        font-size fontSizeTitle
-
-    >>> .item-body
-      font-size 0 !important
-
-      &::first-letter
-        font-size fontSizeItem
-
-    &:hover
-      z-index 1
-      position fixed
-      height 100%
-      background-color rgba(255, 255, 255, .9)
-
-      >>> .title
-        font-size fontSizeTitle
-
-      >>> .item-body
-        font-size fontSizeItem !important
+    min-height 100%
 </style>
