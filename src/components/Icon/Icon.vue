@@ -57,18 +57,18 @@ export default {
     },
   },
 
-  methods: {
-    async importIcon() {
-      try {
-        await import(`@/assets/svg-icons/${this.icon}`);
-      } catch (error) {
-        console.warn(error.message, '| Please provide the svg icon');
-      }
-    },
-  },
+  // methods: {
+  //   async importIcon() {
+  //     try {
+  //       await import(`@/assets/svg-icons/${this.icon}`);
+  //     } catch (error) {
+  //       console.warn(error.message, '| Please provide the svg icon');
+  //     }
+  //   },
+  // },
 
-  created() {
-    this.importIcon();
-  },
+  // created() {
+  //   this.importIcon();
+  // },
 };
 </script>
