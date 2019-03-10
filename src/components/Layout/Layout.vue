@@ -23,7 +23,7 @@ fontSizeTitle = 1.5rem
 
 .layout
   display grid
-  grid-template-columns 250px 1fr
+  grid-template-columns 250px minmax(0, 1fr)
   grid-template-areas "navigation content"
   min-height 100%
 
@@ -37,7 +37,7 @@ fontSizeTitle = 1.5rem
 
 @media (max-width: screenMax)
   .layout
-    grid-template-columns 70px 1fr
+    grid-template-columns 70px minmax(0, 1fr)
 
   .navigation
     >>> .title

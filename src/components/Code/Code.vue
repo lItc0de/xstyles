@@ -21,7 +21,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.markdown
+  width 100%
 .markdown >>> pre
   margin 0
   border-radius var(--borderRadius)
+  overflow: auto
 </style>

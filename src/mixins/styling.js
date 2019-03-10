@@ -94,23 +94,23 @@ export const fontMixin = {
 export const alignmentMixin = {
   props: {
     justifyContent: {
-      type: String,
-      default: 'initial',
+      type: [String, Object],
+      default: null,
     },
 
     justifyItems: {
-      type: String,
-      default: 'initial',
+      type: [String, Object],
+      default: null,
     },
 
     alignContent: {
-      type: String,
-      default: 'initial',
+      type: [String, Object],
+      default: null,
     },
 
     alignItems: {
-      type: String,
-      default: 'initial',
+      type: [String, Object],
+      default: null,
     },
 
     row: {
@@ -127,16 +127,16 @@ export const alignmentMixin = {
         justifyItems,
         alignContent,
         alignItems,
+        row,
       } = this;
 
-      const style = {
-        justifyContent,
-        justifyItems,
-        alignContent,
-        alignItems,
-      };
+      const style = {};
 
-      if (this.row) style.flexFlow = 'row';
+      if (justifyContent) style.justifyContent = justifyContent;
+      if (justifyItems) style.justifyItems = justifyItems;
+      if (alignContent) style.alignContent = alignContent;
+      if (alignItems) style.alignItems = alignItems;
+      if (row) style.flexFlow = 'row';
 
       return style;
     },

@@ -15,7 +15,7 @@ export default {
   props: {
     width: {
       type: [String, Number],
-      default: 'initial',
+      default: '100%',
       description: 'sets the card to a fixed width',
     },
   },

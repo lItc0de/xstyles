@@ -23,7 +23,7 @@ export default {
 
     width: {
       type: [Number, String],
-      default: 'initial',
+      default: 'auto',
     },
   },
 
