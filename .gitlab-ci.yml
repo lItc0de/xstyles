@@ -2,16 +2,21 @@ image: node:10
 
 cache:
   paths:
-  - node_modules/
-  - .yarn
+    - node_modules/
 
 stages:
   - test
+  - release
 
-jest_tests:
+before_script:
+  - npm install
+
+test:
   stage: test
-  before_script:
-  - yarn config set cache-folder .yarn
-  - yarn install
   script:
-    - yarn test:unit
+    - npm run test:unit
+
+publish:
+  stage: release
+  script:
+    - npx semantic-release
