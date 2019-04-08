@@ -14,9 +14,11 @@ before_script:
 test:
   stage: test
   script:
+    - npm run lint
     - npm run test:unit
 
 publish:
   stage: release
   script:
+    - npm run build
     - npx semantic-release
