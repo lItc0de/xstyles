@@ -1,5 +1,5 @@
 <template>
-  <button :style="style" class="btn" @click="handleClick">
+  <button :style="style" class="btn" v-on="listeners" @click="handleClick">
     <slot/>
   </button>
 </template>
@@ -44,6 +44,11 @@ export default {
       if (this.flat) style.backgroundColor = 'transparent';
 
       return { ...this.colorMixin, ...this.fontMixin, ...style };
+    },
+
+    listeners() {
+      const { click, ...listeners } = this.$listeners;
+      return listeners;
     },
   },
 };

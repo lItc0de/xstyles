@@ -1,5 +1,5 @@
 <template>
-  <button class="icon-btn" :style="style" v-on="$listeners">
+  <button class="icon-btn" :style="style" v-on="listeners" @click="$emit('click')">
     <svgicon
       :icon="icon"
       :color="color"
@@ -30,6 +30,11 @@ export default {
       };
 
       return { ...this.colorMixin, ...style };
+    },
+
+    listeners() {
+      const { click, ...listeners } = this.$listeners;
+      return listeners;
     },
   },
 };
