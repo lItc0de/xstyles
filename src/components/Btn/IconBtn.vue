@@ -1,5 +1,5 @@
 <template>
-  <button class="icon-btn" :style="style">
+  <button class="icon-btn" :style="style" v-on="$listeners">
     <svgicon
       :icon="icon"
       :color="color"

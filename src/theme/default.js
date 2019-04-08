@@ -3,7 +3,7 @@ export default {
     primary: '#f25f5c',
     gradientFrom: '#c65895',
     gradientTo: '#7652e7',
-    // usage: linear-gradient(var(--gradiendDeg), var(--gradientFrom), var(--gradientTo))
+    // usage: linear-gradient(var(--gradientDeg), var(--gradientFrom), var(--gradientTo))
 
     backgroundColor: '#FAFAFA', // #302D42
     backgroundColorLight: '#FFFFFF',
